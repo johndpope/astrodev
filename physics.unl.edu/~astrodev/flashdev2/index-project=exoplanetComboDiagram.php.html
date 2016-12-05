@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>exoplanetComboDiagram</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Exoplanet Combo Diagram</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">exoplanetComboDiagram004</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('exoplanetComboDiagram/exoplanetComboDiagram004.html','exoplanetComboDiagram004',650,300);" onMouseover="window.status='opens <exoplanetComboDiagram/exoplanetComboDiagram004.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="exoplanetComboDiagram/exoplanetComboDiagram004.swf">link</a> <span class="verFileSize">(19.9 KB, 650×300)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="exoplanetComboDiagram/exoplanetComboDiagram004.fla" class="verLink">source</a> <span class="verFileSize">(89.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 10 Oct 06, 11:13am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">In version 002 the planet and star discs would be drawn only if there were no labels. Now it is possible to have labels and discs by using the boolean <code>showDiscs</code>. The default for this property is true when no labels have been added and false when there are labels.
+</p>
+
+<p>
+One necessary consequence of these changes is that there is no longer any margin to the curve on the radial velocity plot.</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">exoplanetComboDiagram002</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Fri, 6 Oct 06, 4:55pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">Now the planet and star discs will be drawn if no labels are added. In this case a red cursor dot will appear on the radial velocity curve and the following flashvars will be parsed:
+
+<ul>
+<li><code>animate</code> - boolean to have the diagram animate (default is false)</li>
+<li><code>period</code> - the period of the animation in seconds (defaut is 5)</li>
+<li><code>starAngle</code> - specifies the position of the star in degrees ccw from right (with the earth at left); default is 0 (note that there is no <code>planetAngle</code> flashvar in this component)</li>
+</ul>
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">exoplanetComboDiagram001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('exoplanetComboDiagram/exoplanetComboDiagram001.html','exoplanetComboDiagram001',650,300);" onMouseover="window.status='opens <exoplanetComboDiagram/exoplanetComboDiagram001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="exoplanetComboDiagram/exoplanetComboDiagram001.swf">link</a> <span class="verFileSize">(19.4 KB, 650×300)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 6 Oct 06, 12:33pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">The native size of the movie is 650×300. Accepted flashvars:
+</p>
+
+<ul>
+<li><code>orbitDirection</code> - 'cw' or 'ccw' (default is 'ccw')</li>
+<li><code>earthArrowAngle</code> - in degrees ccw from <i>left</i> (default is 0); this causes the entire diagram to rotate; so, for example, if a label is given an angle of 0° it will always be at the opposite of the center of mass no matter what the value of <code>earthArrowAngle</code> is</li>
+<li><code>starLabels, planetLabels</code> - these are comma/semicolon delimited lists of labels; the semicolons separate the labels and the commas separate the parts of the label; each label consists of three parts: the angle, the label to show on the diagram, and the label to show on the velocity plot (note that the angle goes first, unlike for exoplanetOrbitDiagram); the angle is measured ccw from <i>right</i> where the earth view is at left (so 0° is always at the opposite side of the center of mass from the earth)</li>
+</ul>
+
+<p>
+The above example has the following flashvars line:
+<code>planetLabels=0,a,A;90,d,D&starLabels=0,c,C;90,b,B&orbitDirection=cw&earthArrowAngle=180</code>
+
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

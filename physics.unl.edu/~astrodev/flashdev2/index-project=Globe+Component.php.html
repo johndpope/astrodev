@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>globeComponent</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Globe Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">globeComponent027</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('globeComponent/globeComponent027.html','globeComponent027',930,700);" onMouseover="window.status='opens <globeComponent/globeComponent027.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="globeComponent/globeComponent027.swf">link</a> <span class="verFileSize">(75.7 KB, 930×700)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="globeComponent/globeComponent027.fla" class="verLink">source</a> <span class="verFileSize">(455.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 6 Jul 06, 10:32am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote"><a href="globeComponent/index.html">documentation</a>
+</p>
+
+<p>
+This is a new version of the globe component. It is designed to be easier to use, and can be used either as an object of the celestial sphere component (plug-in), or as an isolated component (standalone) with a live preview.
+</p>
+
+<p>
+When used in the celestial sphere there is no need for the programmer to manually update and position the globe (unlike the earlier globe component), all of that happens automatically. For example, you do not have to define a onMouseUpdate function that repositions the globe when the user drags the celestial sphere around. To add the globe to a celestial sphere instance, all you need is the following line of code:
+</p>
+
+<pre>
+sphereMC.addObject("Globe Component v2", "globe");
+</pre>
+
+<p>
+Then, if you want to show sun shading, you would add the following:
+<p>
+
+<pre>
+sphereMC.globe.instance.showShading = true;
+sphereMC.globe.instance.setSunPosition({ra: 0, dec: 0});
+</pre>
+
+<p>
+All function calls and changes to property values take effect immediately -- you do not have to call an update function.
+</p>
+
+<p>
+Note: if you want to show the equator or other features on the globe you still need to do the sphere in a sphere trick.
+</p>
+
+<p>
+
+
+
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">globeComponent002</span></td><td align="left" valign="middle" class="rowColor2"><a href="javascript:popup('globeComponent/globeComponent002.html','globeComponent002',500,500);" onMouseover="window.status='opens <globeComponent/globeComponent002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="globeComponent/globeComponent002.swf">link</a> <span class="verFileSize">(61.8 KB, 500×500)</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><a href="globeComponent/globeComponent002.fla" class="verLink">source</a> <span class="verFileSize">(229.5 KB)</span></td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Fri, 2 Apr 04, 9:30am CST</span></td><td class="rowColor2">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

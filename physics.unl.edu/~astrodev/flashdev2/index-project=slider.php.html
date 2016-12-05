@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>slider</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Slider</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">slider637</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('slider/slider637.html','slider637',900,600);" onMouseover="window.status='opens <slider/slider637.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="slider/slider637.swf">link</a> <span class="verFileSize">(65.7 KB, 900×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="slider/slider637.fla" class="verLink">source</a> <span class="verFileSize">(580 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 18 Sep 06, 5:20pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Expanded the list of font characters that are embedded by default (characters like * and + and < were not getting embedded). The default font load is now about 10 Kb (up from 8 Kb). Of this, 1.5 Kb is in Verdana Italic for the value field and the remaining 8.5 Kb is in Verdana for the label and unit fields.</p>
+
+<p>You can still specify your own fonts movieclip; however, the 10 Kb of Verdana will still be embedded unless you remove or de-export the default fonts movieclip. Alternatively, you can edit the default fonts movieclip directly to include just the fonts you need.</p>
+
+<p>The embedded font characters now include all characters on the keyboard plus °±µ·×÷…‹›. The alt-xxxx sequences for entering these extra charaters are:</p>
+
+<ul>
+<li>° <code>0176</code></li>
+<li>± <code>0177</code></li>
+<li>µ <code>0181</code></li>
+<li>· <code>0183</code></li>
+<li>× <code>0215</code></li>
+<li>÷ <code>0247</code></li>
+<li>… <code>0133</code></li>
+<li>‹ <code>0139</code></li>
+<li>› <code>0155</code></li>
+</ul>
+
+<p>
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">slider636</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Wed, 23 Aug 06, 5:43pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">This update fixes a potentially serious problem where the slider could get locked up in an infinite loop. If this were to happen while using the live preview in the authoring environment the flash program would become unresponsive and you'd lose your unsaved work (at least in Flash 6).<p>
+
+<p>Example scenario: you are editing a movie and you have a slider on the stage with a range of 0 to 10, an initial value of 0, and the precision is in fixed digits. If you were to change the precision mode to significant digits Flash will become unresponsive and you will have to have Windows shut down the program, losing unsaved work.</p>
+
+<p>Please note the following rule: <b>if precisionMode is "significant digits" or if scalingMode is "logarithmic" the value range must be strictly greater than zero</b>. The slider will misbehave (but usually not crash) if this rule is broken. However, the problem is fatal (an infinite loop) if the value is zero and the scaling is in significant digits.</p>
+
+<p>Unless a Flash movie violates &ndash; or can potentially violate &ndash; the above rule there is no need to go back and update the slider. This update merely prevents violations of the rule from making the flash movie unresponsive, and potentially causing the authoring environment to crash. Therefore, I recommend using this version in new movies, and being careful about adjusting the slider parameters when working with old movies.
+
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">slider635</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 23 May 06, 5:31pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Added the ability to show/hide the value field (via "show value field" in the properties inspector or the <code>showField</code> property).</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">slider634</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Fri, 19 May 06, 1:22pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">made two fixes related to the tab (mouse free) mode:
+</p>
+<ul>
+<li>fixed it so that tabbing-off the value field does not result in the change handler being called unless the value was being edited</li>
+<li>fixed the problem that would cause double incrementing when adjusting the grabber position with the arrow keys</li>
+</ul>
+<p>
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">slider008</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('slider/slider008.html','slider008',620,600);" onMouseover="window.status='opens <slider/slider008.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="slider/slider008.swf">link</a> <span class="verFileSize">(39.1 KB, 620×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="slider/slider008.fla" class="verLink">source</a> <span class="verFileSize">(288 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 7 Sep 04, 3:32pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Changed the colors on the spectral type slider to match the blackbody colors we use.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

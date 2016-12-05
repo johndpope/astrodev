@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>exoplanetOrbitDiagram</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Exoplanet Orbit Diagram</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">exoplanetOrbitDiagram007</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('exoplanetOrbitDiagram/exoplanetOrbitDiagram007.html','exoplanetOrbitDiagram007',300,300);" onMouseover="window.status='opens <exoplanetOrbitDiagram/exoplanetOrbitDiagram007.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="exoplanetOrbitDiagram/exoplanetOrbitDiagram007.swf">link</a> <span class="verFileSize">(10 KB, 300×300)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="exoplanetOrbitDiagram/exoplanetOrbitDiagram007.fla" class="verLink">source</a> <span class="verFileSize">(50.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 5 Oct 06, 5:50pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">New flashvars:
+</p>
+
+<ul>
+<li><code>animate</code> - boolean to control whether the diagram is animated; default is false</li>
+<li><code>period</code> - the period of the animation in seconds; default is 5</li>
+<li><code>showStarDirectionArrow, showPlanetDirectionArrow</code> - these booleans can be used to toggle the visibility of the direction arrows individually (they are parsed after <code>showDirectionArrows</code>, so thier value(s) dominate); the default is to show the arrows</li>
+<li><code>showEarthArrow</code> - boolean to show/hide the earth direction arrow; the default is true</li>
+<li><code>perimeterLabels</code> - this comma/semicolon delimited list adds labels around the perimeter; the format is the same as for <code>starLabels</code> and <code>planetLabels</code> below, except that the angle is measured ccw from <i>left</i> (like the earth arrow angle); these labels will rotate with the <code>earthArrowAngle</code>  (so 0° always corresponds with the view from earth arrow)</li>
+</ul>
+
+<p>
+Note that <code>earthArrowAngle</code> still is meaningful (everything will be rotated) even if <code>showEarthArrow</code> is false.
+</p> 
+
+<p>
+The flashvars line for the example above is <code>showEarthArrow=f&perimeterLabels=A,0;B,90;C,180;D,270</code>
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">exoplanetOrbitDiagram006</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Wed, 4 Oct 06, 3:23pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">Now labels can be added to positions on the star and planet orbits. This is done using the <code>starLabels</code> or the <code>planetLabels</code> flashvars. If either of these variables is used it should consist of a semicolon delimited list of label items, where each label item is a comma delimited list of (1) the label text and (2) the angle (where the angle is in degrees counter-clockwise from right if the earth is at left -- the same definition as for <code>planetAngle</code> and <code>starAngle</code>). For example, the demonstration page above uses the following flashvars line:
+</p>
+
+<p>
+<code>starLabels=A,0;B,90;C,180;D,240;E,320&showStar=f</code>
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">exoplanetOrbitDiagram005</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Wed, 4 Oct 06, 12:10pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">The native size of the swf is 300×300. The following flashvars are accepted:
+</p>
+
+<ul>
+<li><code>starOrbitRadius</code> - in pixels, default is 18; the planet's orbital radius is fixed at 94</li>
+<li><code>showPlanet</code> - can be 'T' or 'F' (or '1' or '0'), default is 'T'</li>
+<li><code>showStar</code> - can be 'T' or 'F' (or '1' or '0'), default is 'T'</li>
+<li><code>planetAngle</code> - in degrees counterclockwise from right (assuming that the view from earth is from the left), default is 180, but see note below</li>
+<li><code>starAngle</code> - in degrees counterclockwise from right (assuming that the view from earth is from the left), default is 0, but see note below</li>
+<li><code>earthArrowAngle</code> - in degrees counterclockwise from left, default is 0, changing this value causes the planetAngle and starAngle to change correspondingly (so they are effectively independent of this setting)</li>
+<li><code>showDirectionArrows</code> - can be 'T' or 'F' (or '1' or '0'), default is 'T'</li>
+<li><code>orbitDirection</code> - can be 'cw' or 'ccw', default is 'cw'
+<li><code>starOrbitDirection, planetOrbitDirection</code> - both of these must be set for either to have an effect; these properties override the orbitDirection property</li>
+</ul>
+
+<p>
+Note regarding the planet and star angles: if only one of these properties is defined the other will be assigned so that the bodies are on the opposite sides of the center of mass (the physically correct situation). The only reason for defining both properties is if you want to model a physically incorrect situation.
+
+
+
+
+
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

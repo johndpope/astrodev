@@ -1,0 +1,630 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>Components and Things</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Celestial Sphere Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">celestial_sphere140</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('celestial_sphere/celestial_sphere140.html','celestial_sphere140',700,400);" onMouseover="window.status='opens <celestial_sphere/celestial_sphere140.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="celestial_sphere/celestial_sphere140.swf">link</a> <span class="verFileSize">(66.2 KB, 700×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="celestial_sphere/celestial_sphere140.fla" class="verLink">source</a> <span class="verFileSize">(608 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 4 Aug 06, 12:18pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Fixed a problem affecting the horizon plane when making a movie in Flash 7.</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">celestial_sphere128</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Wed, 27 Jul 05, 3:01pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">Shaded band functions on the celestial sphere component:</p>
+
+<ul>
+<li><code>addShadedBand(frontName, backName, name, parameters, [surface, [hemisphere, [initObject]]])</code> - <code>name</code> defines the name the band will be known by to access it specifically; see the description of <code>setLinkageNames()</code> below for a description of the <code>frontName</code>, <code>backName</code>, <code>surface</code>, <code>hemisphere</code>, <code>initObject</code> properties; see <code>setParameters()</code> for a description of the <code>parameters</code> argument</li>
+<li><code>updateShadedBands()</code></li>
+<li><code>showShadedBands()</code></li>
+<li><code>hideShadedBands()</code></li>
+<li><code>removeShadedBands()</code></li>
+</ul>
+
+<p>Methods of a shaded band include:</p>
+
+<ul>
+<li><code>setParameters({dec1, dec2, [ra, tilt]})</code> - the <code>dec1</code> and <code>dec2</code> (or <code>alt1</code> and <code>alt2</code>) parameters determine the range of the band; the optional <code>ra</code> (or <code>az</code>) and <code>tilt</code> parameters can be used to define a band in any arbitrary orientation (see the circle documentation for an understanding of what these parameters mean, or see the celestial_sphere101 example)</li>
+<li><code>setLinkageNames(frontName, backName, [surface, [hemisphere, [initObject]]])</code> - <code>frontName</code> and <code>backName</code> are the linkage names of the clips in the library (these should be discs 200 pixels wide); the optional parameter <code>surface</code> can be the strings "inner" or "outer" and determines whether the band appears on the inner or outer surface of the sphere (default is outer); the optional parameter <code>hemisphere</code> can be the strings "below", "above", or "full" and determines whether the band appears below or above the horizon plane, or both (default is both); the <code>initObject</code> parameter can be an object whose parameters get passed to the front and back movieclips when they are attached</li>
+<li><code>setBorderStyle(thickness, [color, [alpha]])</code> - sets the linestyle of the border</li>
+<li><code>remove()</code> - removes the band</li>
+<li><code>update()</code> - updates the band</li>
+</ul>
+
+<p>Properties of a shaded band include:</p>
+
+<ul>
+<li><code>visible</code> - toggles the visibility of the band (no update required)</li>
+<li><code>showBorder</code> - toggles the visibility of the border of the band (no update required)</li>
+</ul>
+
+<p>Additional notes:</p>
+
+<p>When the front and back shaded movieclips are attached to the library they get three variables defined on them (in addition to any that are passed by an initObject):</p>
+
+<ul>
+<li><code>_sphere</code> - a reference to the sphere that the clips are a part of</li>
+<li><code>_shadedBand</code> - a reference to the specific shaded band that the instances belong to</li>
+<li><code>_side</code> - a string, "front" or "back", that tells the clip which side of the sphere it is part of</li>
+</ul>
+
+<p>The declination and altitude ranges don't require the tilt and ra (or az) parameters, but one situation that does is putting a band on the ecliptic. The following line defines a band that extends 10&deg; above and below the ecliptic:</p>
+
+<p><code>sphere.band.setParameters({dec1: -10, dec2: 10, ra: 0, tilt: 23.4});</code></p>
+
+
+<p>
+
+
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">celestial_sphere101</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('celestial_sphere/celestial_sphere101.html','celestial_sphere101',800,400);" onMouseover="window.status='opens <celestial_sphere/celestial_sphere101.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="celestial_sphere/celestial_sphere101.swf">link</a> <span class="verFileSize">(44.5 KB, 800×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 23 Feb 04, 10:32am CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">This new version has a number of changes, the most significant of which is that circles are rendered twice as fast.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Globe Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">globeComponent027</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('globeComponent/globeComponent027.html','globeComponent027',930,700);" onMouseover="window.status='opens <globeComponent/globeComponent027.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="globeComponent/globeComponent027.swf">link</a> <span class="verFileSize">(75.7 KB, 930×700)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="globeComponent/globeComponent027.fla" class="verLink">source</a> <span class="verFileSize">(455.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 6 Jul 06, 10:32am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote"><a href="globeComponent/index.html">documentation</a>
+</p>
+
+<p>
+This is a new version of the globe component. It is designed to be easier to use, and can be used either as an object of the celestial sphere component (plug-in), or as an isolated component (standalone) with a live preview.
+</p>
+
+<p>
+When used in the celestial sphere there is no need for the programmer to manually update and position the globe (unlike the earlier globe component), all of that happens automatically. For example, you do not have to define a onMouseUpdate function that repositions the globe when the user drags the celestial sphere around. To add the globe to a celestial sphere instance, all you need is the following line of code:
+</p>
+
+<pre>
+sphereMC.addObject("Globe Component v2", "globe");
+</pre>
+
+<p>
+Then, if you want to show sun shading, you would add the following:
+<p>
+
+<pre>
+sphereMC.globe.instance.showShading = true;
+sphereMC.globe.instance.setSunPosition({ra: 0, dec: 0});
+</pre>
+
+<p>
+All function calls and changes to property values take effect immediately -- you do not have to call an update function.
+</p>
+
+<p>
+Note: if you want to show the equator or other features on the globe you still need to do the sphere in a sphere trick.
+</p>
+
+<p>
+
+
+
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">globeComponent002</span></td><td align="left" valign="middle" class="rowColor2"><a href="javascript:popup('globeComponent/globeComponent002.html','globeComponent002',500,500);" onMouseover="window.status='opens <globeComponent/globeComponent002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="globeComponent/globeComponent002.swf">link</a> <span class="verFileSize">(61.8 KB, 500×500)</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><a href="globeComponent/globeComponent002.fla" class="verLink">source</a> <span class="verFileSize">(229.5 KB)</span></td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Fri, 2 Apr 04, 9:30am CST</span></td><td class="rowColor2">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Sinusoid Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">sinusoidComponent001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('sinusoidComponent/sinusoidComponent001.html','sinusoidComponent001',700,500);" onMouseover="window.status='opens <sinusoidComponent/sinusoidComponent001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="sinusoidComponent/sinusoidComponent001.swf">link</a> <span class="verFileSize">(35.2 KB, 700×500)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="sinusoidComponent/sinusoidComponent001.fla" class="verLink">source</a> <span class="verFileSize">(427.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Wed, 7 Sep 05, 3:01pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote"><a href="sinusoidComponent/sinusoidComponentReadme.html">documentation</a</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Scientific Notation Number Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">sci_notNumber003</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('sci_notNumber/sci_notNumber003.html','sci_notNumber003',800,500);" onMouseover="window.status='opens <sci_notNumber/sci_notNumber003.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="sci_notNumber/sci_notNumber003.swf">link</a> <span class="verFileSize">(29.5 KB, 800×500)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="sci_notNumber/sci_notNumber003.fla" class="verLink">source</a> <span class="verFileSize">(160 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 7 Jun 05, 9:33am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Note that the <a href="index-project=numberFunctions.php.html">toScientific</a> function combined with the <a href="index-project=displayText.php.html">displayText</a> function now provides a more convenient way of displaying numbers in scientific format.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Logarithmic Histogram</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">logHistogram002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('logHistogram/logHistogram002.html','logHistogram002',620,400);" onMouseover="window.status='opens <logHistogram/logHistogram002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="logHistogram/logHistogram002.swf">link</a> <span class="verFileSize">(22.5 KB, 620×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="logHistogram/logHistogram002.fla" class="verLink">source</a> <span class="verFileSize">(64 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Wed, 17 Aug 05, 7:02pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">changes:</p>
+
+<ul>
+<li>fixed case bug</li>
+<li>added function <code>stepLabelsBy(n)</code>, so that labels are only shown every n<sup>th</sup> power of ten; in the example above n is 2</li>
+<li>added function <code>showMinorTicks(arg)</code>, where arg is a boolean indicating whether minor tickmarks are shown; in the example above this is set to false</li>
+<li>added an optional <code>width</code> parameter to the bar objects, so each bar's width can be specified individually (otherwise the default bar width is used); in the example above a narrow "empty" bar is used to physically separate the "16+" category from the rest</li>
+</ul>
+
+<p>This example also shows what can be done with a custom bar. Rolling over displays the value associated with that bar. Clicking the value lets you drag it around the screen.
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Slider</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">slider637</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('slider/slider637.html','slider637',900,600);" onMouseover="window.status='opens <slider/slider637.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="slider/slider637.swf">link</a> <span class="verFileSize">(65.7 KB, 900×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="slider/slider637.fla" class="verLink">source</a> <span class="verFileSize">(580 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 18 Sep 06, 5:20pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Expanded the list of font characters that are embedded by default (characters like * and + and < were not getting embedded). The default font load is now about 10 Kb (up from 8 Kb). Of this, 1.5 Kb is in Verdana Italic for the value field and the remaining 8.5 Kb is in Verdana for the label and unit fields.</p>
+
+<p>You can still specify your own fonts movieclip; however, the 10 Kb of Verdana will still be embedded unless you remove or de-export the default fonts movieclip. Alternatively, you can edit the default fonts movieclip directly to include just the fonts you need.</p>
+
+<p>The embedded font characters now include all characters on the keyboard plus °±µ·×÷…‹›. The alt-xxxx sequences for entering these extra charaters are:</p>
+
+<ul>
+<li>° <code>0176</code></li>
+<li>± <code>0177</code></li>
+<li>µ <code>0181</code></li>
+<li>· <code>0183</code></li>
+<li>× <code>0215</code></li>
+<li>÷ <code>0247</code></li>
+<li>… <code>0133</code></li>
+<li>‹ <code>0139</code></li>
+<li>› <code>0155</code></li>
+</ul>
+
+<p>
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">slider636</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Wed, 23 Aug 06, 5:43pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">This update fixes a potentially serious problem where the slider could get locked up in an infinite loop. If this were to happen while using the live preview in the authoring environment the flash program would become unresponsive and you'd lose your unsaved work (at least in Flash 6).<p>
+
+<p>Example scenario: you are editing a movie and you have a slider on the stage with a range of 0 to 10, an initial value of 0, and the precision is in fixed digits. If you were to change the precision mode to significant digits Flash will become unresponsive and you will have to have Windows shut down the program, losing unsaved work.</p>
+
+<p>Please note the following rule: <b>if precisionMode is "significant digits" or if scalingMode is "logarithmic" the value range must be strictly greater than zero</b>. The slider will misbehave (but usually not crash) if this rule is broken. However, the problem is fatal (an infinite loop) if the value is zero and the scaling is in significant digits.</p>
+
+<p>Unless a Flash movie violates &ndash; or can potentially violate &ndash; the above rule there is no need to go back and update the slider. This update merely prevents violations of the rule from making the flash movie unresponsive, and potentially causing the authoring environment to crash. Therefore, I recommend using this version in new movies, and being careful about adjusting the slider parameters when working with old movies.
+
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">slider635</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 23 May 06, 5:31pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Added the ability to show/hide the value field (via "show value field" in the properties inspector or the <code>showField</code> property).</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">slider634</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Fri, 19 May 06, 1:22pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">made two fixes related to the tab (mouse free) mode:
+</p>
+<ul>
+<li>fixed it so that tabbing-off the value field does not result in the change handler being called unless the value was being edited</li>
+<li>fixed the problem that would cause double incrementing when adjusting the grabber position with the arrow keys</li>
+</ul>
+<p>
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">slider008</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('slider/slider008.html','slider008',620,600);" onMouseover="window.status='opens <slider/slider008.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="slider/slider008.swf">link</a> <span class="verFileSize">(39.1 KB, 620×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="slider/slider008.fla" class="verLink">source</a> <span class="verFileSize">(288 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 7 Sep 04, 3:32pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Changed the colors on the spectral type slider to match the blackbody colors we use.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Curved Text Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">curvedText003</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('curvedText/curvedText003.html','curvedText003',725,525);" onMouseover="window.status='opens <curvedText/curvedText003.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="curvedText/curvedText003.swf">link</a> <span class="verFileSize">(55.9 KB, 725×525)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Wed, 30 Aug 06, 12:26pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">curvedText002</span></td><td align="left" valign="middle" class="rowColor2"><a href="javascript:popup('curvedText/curvedText002.html','curvedText002',725,525);" onMouseover="window.status='opens <curvedText/curvedText002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="curvedText/curvedText002.swf">link</a> <span class="verFileSize">(55.8 KB, 725×525)</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><a href="curvedText/curvedText002.fla" class="verLink">source</a> <span class="verFileSize">(466.5 KB)</span></td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Thu, 17 Jun 04, 3:59pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">toFixed Numerical Routine</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">toFixed002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('toFixed/toFixed002.html','toFixed002',550,250);" onMouseover="window.status='opens <toFixed/toFixed002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="toFixed/toFixed002.swf">link</a> <span class="verFileSize">(19.7 KB, 550×250)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="toFixed/toFixed002.fla" class="verLink">source</a> <span class="verFileSize">(14.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 7 May 04, 3:13pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">The function given here takes a number and returns it as a string with the specified number of digits. To use, copy the function <code>Number.prototype.toFixed()</code> and put it in the first frame of your movie, or inside any <code>#initclip/#endinitclip</code> pair. Then when you have a number <code>x</code> that you want in fixed format with <code>N</code> digits, use the following method:
+<br><br>
+<code>output = x.toFixed(N);</code>
+<br><br>
+Another example:
+<br><br>
+<code>
+var x = Math.sin(1);<br>
+trace(x); // traces 0.841470984807897<br>
+var str = x.toFixed(3);<br>
+trace(str); // traces 0.841
+</code>
+<br><br>
+The variable must be a number to access the function, so explicit conversion may be necessary:
+<br><br>
+<code>
+userString = "0.33443";<br>
+var x = Number(userString);<br>
+trace(x.toFixed(2)); // traces 0.33
+</code></p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Scientific Notation Functions</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">sci_not002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('sci_not/sci_not002.html','sci_not002',600,350);" onMouseover="window.status='opens <sci_not/sci_not002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="sci_not/sci_not002.swf">link</a> <span class="verFileSize">(22.5 KB, 600×350)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="sci_not/sci_not002.fla" class="verLink">source</a> <span class="verFileSize">(37 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 7 May 04, 3:12pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">There are two functions demonstrated here:
+</p><p class="verNote">
+<code>Math.toScientific(<i>num, [sigDigs]</i>)</code> returns a string with <code>num</code> in scientific notation. <code>sigDigs</code> is an optional parameter to specify the number of significant digits (valid values are integers 1 through 15). If <code>sigDigs</code> isn't provided it defaults to 4. In the case of error the function returns an empty string. 
+</p><p class="verNote">
+<code>Math.toSigDigits(<i>num, sigDigs</i>)</code> returns <code>num</code> as a number with <code>sigDigs</code> significant digits, where <code>sigDigs</code> is an integer from 1 to 15. If there is an error it returns <code>NaN</code>. Since this returns a number displaying trailing zeros when converting to a string is a problem. For example:
+<br><br>
+<code>
+trace(String(Math.toSigDigits(560001, 4))); // traces 560000
+<br>
+// can't tell which zeros are significant and which are not 
+<br><br>
+trace(String(Math.toSigDigits(0.0005, 5))); // traces 0.0005
+<br>
+// implies that there is only one significant digit 
+</code></p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Gaussian Random Number Generation</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">gaussianRandomNumber001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('gaussianRandomNumber/gaussianRandomNumber001.html','gaussianRandomNumber001',600,400);" onMouseover="window.status='opens <gaussianRandomNumber/gaussianRandomNumber001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="gaussianRandomNumber/gaussianRandomNumber001.swf">link</a> <span class="verFileSize">(18 KB, 600×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="gaussianRandomNumber/gaussianRandomNumber001.fla" class="verLink">source</a> <span class="verFileSize">(22.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 10 May 04, 4:21pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">The function <code>gaussian</code> on the first frame of the main timeline returns a random number that follows a Gaussian distribution with a mean of zero and a standard deviation of one. Note that the function can be modified to produce two guassian random numbers per call. One can use <code>x2*w</code> in the last line of the function as well as <code>x1*w</code>. This function is based on the algorithm found <a href="http://www.taygeta.com/random/gaussian.html">here</a>.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">drawArc routine</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">drawArc002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('drawArc/drawArc002.html','drawArc002',800,650);" onMouseover="window.status='opens <drawArc/drawArc002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="drawArc/drawArc002.swf">link</a> <span class="verFileSize">(33.9 KB, 800×650)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="drawArc/drawArc002.fla" class="verLink">source</a> <span class="verFileSize">(25 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 10 May 04, 3:48pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">This file contains the function <code>MovieClip.prototype.drawArc(x, y, radius, startAngle, endAngle)</code>, which draws an arc on the movieclip centered at coordinates <code>x</code> and <code>y</code> with the specified <code>radius</code>. The arc starts at <code>startAngle</code> and ends at <code>endAngle</code>, where these angles are measured in radians from the +x axis, going counterclockwise. This function requires that <code>MovieClip.prototype.maxArcStep</code> be defined.
+</p>
+<p class="verNote">This file dates from July 2003 so don't use the slider in its library.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">3D Plane Rotation</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">planeRotator001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('planeRotator/planeRotator001.html','planeRotator001',700,500);" onMouseover="window.status='opens <planeRotator/planeRotator001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="planeRotator/planeRotator001.swf">link</a> <span class="verFileSize">(41.5 KB, 700×500)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="planeRotator/planeRotator001.fla" class="verLink">source</a> <span class="verFileSize">(100 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 10 May 04, 4:02pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">This file contains a component that skews and rotates a movieclip in a way that makes it seem like a plane in 3D space. The orientation of the plane is controled by two angles (given in degrees) that define the direction that the camera is viewing from, measured from an origin centered on the movieclip. In this coordinate system <code>theta</code> is the azimuthal angle, and is measured in the plane of the movieclip counterclockwise from the movieclip's +y axis. <code>phi</code> is the altitudinal angle measured from this plane. There is an option to have the "back" and "front" sides be separate movieclips &ndash; otherwise, they can be the same.
+</p><p class="verNote">This file dates from June 2003 so don't use the slider in its library.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Watch Digits</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">watchDigits001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('watchDigits/watchDigits001.html','watchDigits001',200,200);" onMouseover="window.status='opens <watchDigits/watchDigits001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="watchDigits/watchDigits001.swf">link</a> <span class="verFileSize">(2.5 KB, 200×200)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="watchDigits/watchDigits001.fla" class="verLink">source</a> <span class="verFileSize">(309.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 7 May 04, 4:46pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">A first attempt at making numbers that appear like those on a watch lcd.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Spectral Type, Temperature, and Color Functions</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">typeAndTemp014</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('typeAndTemp/typeAndTemp014.html','typeAndTemp014',700,920);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp014.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp014.swf">link</a> <span class="verFileSize">(27.3 KB, 700×920)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="typeAndTemp/typeAndTemp014.fla" class="verLink">source</a> <span class="verFileSize">(96.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Wed, 20 Oct 04, 12:30pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Added getMassFromLuminosity, getLuminosityFromRadiusAndTemp, and getTempFromLuminosityAndRadius. Also tweaked getRadiusFromTempAndLuminosity to be more consistent with other functions (it now uses an effective solar temperature of 5808.3 K). Note that getLuminosityFromRadiusAndTemp and getTempFromLuminosityAndRadius are not demonstrated, though they have been tested.</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">typeAndTemp012</span></td><td align="left" valign="middle" class="rowColor2"><a href="javascript:popup('typeAndTemp/typeAndTemp012.html','typeAndTemp012',700,920);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp012.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp012.swf">link</a> <span class="verFileSize">(27.1 KB, 700×920)</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Tue, 19 Oct 04, 5:53pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">Added getTempFromLuminosity as an inverse to getLuminosityFromTempAndClass for main sequence stars. Also added getTempFromRadius, which returns the temperature associated with main sequence star of a given radius. Also added getLuminosityFromMass, which returns the luminosity of a main sequence star given its mass.</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">typeAndTemp010</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('typeAndTemp/typeAndTemp010.html','typeAndTemp010',700,860);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp010.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp010.swf">link</a> <span class="verFileSize">(25 KB, 700×860)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Wed, 6 Oct 04, 12:01pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">added a bolometric correction function</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">typeAndTemp009</span></td><td align="left" valign="middle" class="rowColor2"><a href="javascript:popup('typeAndTemp/typeAndTemp009.html','typeAndTemp009',700,800);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp009.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp009.swf">link</a> <span class="verFileSize">(24.8 KB, 700×800)</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Fri, 2 Jul 04, 4:44pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">Added the following functions:
+<br><br>
+<code>getMvFromTempAndLuminosity</code>
+<br>
+<code>getLuminosityFromTempAndClass</code>
+<br>
+<code>getRadiusFromTempAndLuminosity</code>
+
+
+
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">typeAndTemp008</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('typeAndTemp/typeAndTemp008.html','typeAndTemp008',700,600);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp008.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp008.swf">link</a> <span class="verFileSize">(23.8 KB, 700×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 25 Jun 04, 8:50am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote"><code>getLuminosityFromTempAndMv</code> works now. <code>getColorFromTemp</code> now uses polynomials to calculate the color instead of using a lookup table.</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">typeAndTemp005</span></td><td align="left" valign="middle" class="rowColor2"><a href="javascript:popup('typeAndTemp/typeAndTemp005.html','typeAndTemp005',700,600);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp005.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp005.swf">link</a> <span class="verFileSize">(24.2 KB, 700×600)</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Mon, 21 Jun 04, 5:29pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">Now the function <code>getTempFromSpectralType</code> will accept a number (between 0 and 70) as the argument. If a number is passed the luminosity class can be specified as a second parameter, e.g. <code>getTempFromSpectralType(42, "V")</code> returns 5830.
+<br><br>
+Furthermore, the object returned by the <code>getSpectralTypeFromTemp</code> function &ndash; which has <code>type</code>, <code>number</code>, and <code>class</code> properties &ndash; now adds another property, <code>spectralTypeNumber</code>, which is a number between 0 and 70 that corresponds to the spectral type.</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">typeAndTemp004</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('typeAndTemp/typeAndTemp004.html','typeAndTemp004',700,600);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp004.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp004.swf">link</a> <span class="verFileSize">(24.1 KB, 700×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 15 Jun 04, 11:03am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">typeAndTemp002</span></td><td align="left" valign="middle" class="rowColor2"><a href="javascript:popup('typeAndTemp/typeAndTemp002.html','typeAndTemp002',700,600);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp002.swf">link</a> <span class="verFileSize">(22.4 KB, 700×600)</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Mon, 7 Jun 04, 10:36am CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">typeAndTemp001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('typeAndTemp/typeAndTemp001.html','typeAndTemp001',600,400);" onMouseover="window.status='opens <typeAndTemp/typeAndTemp001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="typeAndTemp/typeAndTemp001.swf">link</a> <span class="verFileSize">(18.7 KB, 600×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 4 Jun 04, 5:02pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">displayText Function</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">displayText008</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('displayText/displayText008.html','displayText008',700,400);" onMouseover="window.status='opens <displayText/displayText008.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="displayText/displayText008.swf">link</a> <span class="verFileSize">(38.9 KB, 700×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="displayText/displayText008.fla" class="verLink">source</a> <span class="verFileSize">(304 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 27 Feb 06, 9:18am CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Changed it so that the function converts the first argument (<code>textString</code>) to a string if necessary (previously it would return <code>null</code> if it was not a string).</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">displayText007</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Thu, 23 Feb 06, 3:08pm CST</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">The function <code>displayText</code> is found in the first frame of the main timeline. Documentation:</p>
+<pre>
+	// This function takes a string and adds its text to screen. It allows a convenient way to display
+	// superscripts and subscripts in a line of text by using &lt;sup&gt;&lt;/sup&gt; and &lt;sub&gt;&lt;/sub&gt; tags.
+	
+	// More precisely, this function creates and positions textfields as needed in a wrapper movieclip it
+	// creates. A reference to this wrapper movieclip is returned by the function. The property textWidth
+	// is added to the wrapper movieclip and gives the total width of the line of text.
+	
+	// Arguments of the function:
+	// textString contains the text to display (the function returns null if this is not a string)
+	// options is an optional object with any of the following properties:
+	//   depth - depth to use for the wrapper movieclip containing the text; if no depth
+	//     is provided a depth of 913001 or greater is used (a global variable is used to
+	//     ensure that subsequent textfields don't overwrite each other)
+	//   mc - a reference to the movieclip in which to add the text wrapper movieclip; if
+	//     it is not provided the wrapper movieclip will be added to 'this'
+	//   name - the name to give the text wrapper movieclip; if it is not provided the name
+	//     will be the string "_textWrapper_" plus depth (e.g. "_textWrapper_913001")
+	//   x y - if x or y are provided the wrapper movieclip will be positioned at those coordinates;
+	//     otherwise the wrapper is placed at the origin
+	//   vAlign - this property determines how the text is arranged vertically with respect to the
+	//     wrapper movieclip's origin; it can be either "center" (default), "top", or "bottom"
+	//   hAlign - this property determines how the text is arranged horizontally with respect to the
+	//     wrapper movieclip's origin; it can be either "center" (default), "left", or "right"
+	//   embedFonts - if this is provided all the textfields will have their embedFonts property
+	//     set to this value; if this is set to true all the necessary characters of the font specified
+	//     in the textFormat parameter must be exported with the movie; the default is false
+	//   textFormat - the TextFormat object to use for the text; if it is not provided the default
+	//     format generated with createTextField is used (12pt Times); this style applies to both
+	//     the sub/superscript and normal textfields, with the exception that sub/superscripts are
+	//     rendered at a smaller font size determined by sizeRatio
+	//   sizeRatio - the ratio of the normal font size (which is specified in the textFormat parameter)
+	//     to the sub/superscript font size; the default is 1.5
+	//   subscriptPosition - this affects the positioning of the subscripts; the default is 0px;
+	//     negative values bring the subscripts closer to the center of the line, while positive
+	//     values push the subscripts away from the center (in pixel units)
+	//   superscriptPosition - this affects the positioning of the superscripts; the default is 0px;
+	//     negative values bring the superscripts closer to the center of the line, while positive
+	//     values push the superscripts away from the center (in pixel units)
+	//   extraSpacing - sometimes it seems that the gap between sub/superscript and normal
+	//     textfields is too narrow, so extraSpacing was introduced to put a little bit of
+	//     extra room between fields; the default is 0.5px
+</pre>
+<p></p></td><td class="rowColor2">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Number Functions</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">numberFunctions002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('numberFunctions/numberFunctions002.html','numberFunctions002',700,500);" onMouseover="window.status='opens <numberFunctions/numberFunctions002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="numberFunctions/numberFunctions002.swf">link</a> <span class="verFileSize">(47 KB, 700×500)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="numberFunctions/numberFunctions002.fla" class="verLink">source</a> <span class="verFileSize">(128.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 27 Feb 06, 9:20am CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Two important fixes to the toScientific function have been made. The first fix makes it so the function now accepts negative values. The second fix takes care of a potential rounding problem. Suppose the number is 9.999e6 and we want to show it with two significant digits. The previous version would return "10.0e6". This version returns "1.0e7".</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Interface Components</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">interfaceComponents006</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('interfaceComponents/interfaceComponents006.html','interfaceComponents006',600,500);" onMouseover="window.status='opens <interfaceComponents/interfaceComponents006.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="interfaceComponents/interfaceComponents006.swf">link</a> <span class="verFileSize">(19.5 KB, 600×500)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="interfaceComponents/interfaceComponents006.fla" class="verLink">source</a> <span class="verFileSize">(139 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 24 Aug 06, 9:34am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Fixed an oversight were it was possible to open the about and help popups by tabs (no mouse) but not to close them.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Shutter Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">shutterComponent009</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('shutterComponent/shutterComponent009.html','shutterComponent009',600,500);" onMouseover="window.status='opens <shutterComponent/shutterComponent009.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="shutterComponent/shutterComponent009.swf">link</a> <span class="verFileSize">(27.6 KB, 600×500)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="shutterComponent/shutterComponent009.fla" class="verLink">source</a> <span class="verFileSize">(296.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 19 May 06, 12:07pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Radial Velocity Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">radialVelocityComponent010</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('radialVelocityComponent/radialVelocityComponent010.html','radialVelocityComponent010',900,400);" onMouseover="window.status='opens <radialVelocityComponent/radialVelocityComponent010.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="radialVelocityComponent/radialVelocityComponent010.swf">link</a> <span class="verFileSize">(34.5 KB, 900×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="radialVelocityComponent/radialVelocityComponent010.fla" class="verLink">source</a> <span class="verFileSize">(352 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 19 May 06, 5:07pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Binary System Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">binSysComponent005</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('binSysComponent/binSysComponent005.html','binSysComponent005',950,600);" onMouseover="window.status='opens <binSysComponent/binSysComponent005.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="binSysComponent/binSysComponent005.swf">link</a> <span class="verFileSize">(37.6 KB, 950×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="binSysComponent/binSysComponent005.fla" class="verLink">source</a> <span class="verFileSize">(276.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 23 May 06, 9:59am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Binary System Lightcurve Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">lightcurveComponent001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('lightcurveComponent/lightcurveComponent001.html','lightcurveComponent001',980,600);" onMouseover="window.status='opens <lightcurveComponent/lightcurveComponent001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="lightcurveComponent/lightcurveComponent001.swf">link</a> <span class="verFileSize">(61.1 KB, 980×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="lightcurveComponent/lightcurveComponent001.fla" class="verLink">source</a> <span class="verFileSize">(409.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 14 Apr 06, 4:25pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">HR Diagram Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">hrDiagramComponent043</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('hrDiagramComponent/hrDiagramComponent043.html','hrDiagramComponent043',1050,670);" onMouseover="window.status='opens <hrDiagramComponent/hrDiagramComponent043.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="hrDiagramComponent/hrDiagramComponent043.swf">link</a> <span class="verFileSize">(104.4 KB, 1050×670)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="hrDiagramComponent/hrDiagramComponent043.fla" class="verLink">source</a> <span class="verFileSize">(1.5 MB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 18 Aug 08, 4:15pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Fixed the label positioning problem on mac.</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">hrDiagramComponent041</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Fri, 2 Mar 07, 5:09pm CST</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">Changed class names and linkage names to avoid problems when a movie loads swfs with different versions of this component. Otherwise, this component should be functionally identical to version 040.</p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">hrDiagramComponent040</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 9 Feb 07, 10:35am CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote"><a href="hrDiagramComponent/hrDiagramComponentNotes.html">updated documentation</a>
+</p>
+<p>
+Major changes:
+</p>
+<ul>
+<li>The biggest change is that the internal conversion functions (e.g. <code>getTypeFromLogTemp</code>) have been updated to better fit real data. These functions can be tweaked more if necessary (a newly created editor makes this relatively easy).</li>
+<li>Made changes to how the distance modulus shifting occurs. The property <code>apparentMagnitudeOffset</code> has been removed and the property <code>distanceModulus</code> behaves differently now. Any existing implementations of the component that use these properties will need to be rewritten.</li>
+<li>Updated the star lists and changed the default appearance of these groups.</li>
+<li>Improved and standardized the way styles are set for some things (e.g. the spectral type style settings). There are potential backwards-compatibility issues with some of the changes, but I doubt if anyone was using the old methods.</li>
+<li>Added the ability to add a group of stars from a list when using <code>addObjectLayer</code>.</li>
+<li>Added the <code>removeObjectLayer</code> and <code>removeAllObjects</code> functions.</li>
+<li>Modified <code>updateObjects</code> so one can now update just a subset of parameters.</li>
+<li>Updated the live preview and fixed it so that the component can be added by <code>attachMovie</code>.</li>
+<li>Added a property <code>skipInitUpdate</code>, which if <code>true</code> will cause the component not to update itself after initialization. It can be set in the init object if using <code>attachMovie</code> or at the bottom of the live update panel in the authoring environment. This should improve efficiency if you're going to immediately change the component settings after initialization.</li>
+<li>Address issues with the luminosity class lines.</li>
+<li>Compatibility problems with AS2 have been fixed.</li>
+<li>Numerous bug fixes.</li>
+</ul>
+<p>
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Error Function</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">errorFunction001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('errorFunction/errorFunction001.html','errorFunction001',550,100);" onMouseover="window.status='opens <errorFunction/errorFunction001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="errorFunction/errorFunction001.swf">link</a> <span class="verFileSize">(18 KB, 550×100)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="errorFunction/errorFunction001.fla" class="verLink">source</a> <span class="verFileSize">(96.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 7 Sep 06, 12:29pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Random MBD Number Generator</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">randomMaxwell003</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('randomMaxwell/randomMaxwell003.html','randomMaxwell003',800,650);" onMouseover="window.status='opens <randomMaxwell/randomMaxwell003.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="randomMaxwell/randomMaxwell003.swf">link</a> <span class="verFileSize">(39 KB, 800×650)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="randomMaxwell/randomMaxwell003.fla" class="verLink">source</a> <span class="verFileSize">(195 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 7 Sep 06, 10:27pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Star Field Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">starFieldComponent002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('starFieldComponent/starFieldComponent002.html','starFieldComponent002',800,350);" onMouseover="window.status='opens <starFieldComponent/starFieldComponent002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="starFieldComponent/starFieldComponent002.swf">link</a> <span class="verFileSize">(42.6 KB, 800×350)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="starFieldComponent/starFieldComponent002.fla" class="verLink">source</a> <span class="verFileSize">(148 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 26 Sep 06, 2:44pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Sinusoid Component II</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">sinusoidComponentII004</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('sinusoidComponentII/sinusoidComponentII004.html','sinusoidComponentII004',400,200);" onMouseover="window.status='opens <sinusoidComponentII/sinusoidComponentII004.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="sinusoidComponentII/sinusoidComponentII004.swf">link</a> <span class="verFileSize">(11.5 KB, 400×200)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="sinusoidComponentII/sinusoidComponentII004.fla" class="verLink">source</a> <span class="verFileSize">(204.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 21 Sep 06, 9:39am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Slight changes have been made to the component: a change in how the size is set when attaching using attachMovie and the inclusion of more embedded characters for the default label.</p>
+
+<p>Besides these changes to the component this demonstration swf has been changed so that the appearance of the example sinusoid can be set using flashvars. The width and height of the component will adjust to the size of the stage (ie. the swf size specified in the embedding html block).</p>
+
+<p>All of the following flashvars are optional:</p>
+
+<ul>
+<li><code>amplitude</code> - in pixels, default is 60</li>
+<li><code>wavelength</code> - in pixels, default is 80</li>
+<li><code>offset</code> - in pixels, default is 0</li>
+<li><code>showAxis</code> - can be 'T' or 'F' (or '1' or '0'), default is 'T'</li>
+<li><code>curveThickness</code> - default is 1</li>
+<li><code>curveColor</code> - in hex (without '#' or '0x' in front), default is '999999'</li>
+<li><code>curveAlpha</code> - default is 100</li>
+<li><code>axisThickness</code> - default is 1</li>
+<li><code>axisColor</code> - in hex, default is 'cccccc'</li>
+<li><code>axisAlpha</code> - default is 100</li>
+</ul>
+
+<p>Labels are added at positions <code>pos<b>Z</b></code> where <code><b>Z</b></code> denotes the label number, running consecutively from 1. The position should be given in pixels. Each label can be customized with the following optional flashvars:</p>
+
+<ul>
+<li><code>color<b>Z</b></code> - in hex, default is 'd00000'</li>
+<li><code>text<b>Z</b></code> - default is no text</li>
+<li><code>textAngle<b>Z</b></code> - in degrees clockwise from up, default is 0</li>
+<li><code>textRadius<b>Z</b></code> - in pixels, default is 7</li>
+<li><code>textSize<b>Z</b></code> - in points, default is 12</li>
+<li><code>dotRadius<b>Z</b></code> - in pixels, default is 3</li>
+</ul>
+
+<p></p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">sinusoidComponentII003</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Mon, 18 Sep 06, 3:38pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">notes:
+
+<br><br>
+
+<code>amplitude, wavelength, offset</code> - These properties determine the shape of the curve. Values are in pixels.
+
+<br><br>
+
+<code>width, height</code> - These properties set the dimensions of the plot area.
+
+<br><br>
+
+<code>addLabel(linkageName, name, position, initObj, depth)</code> - This function adds a label (movieclip) to the curve. If the linkage name is <code>null</code> or <code>undefined</code> the "SCII Default Label" found in the resources folder is used. <code>name</code> should be a valid actionscript identifier since it will be used to provide a reference to the movieclip. The position is the x-coordinate of the label. The optional argument <code>initObj</code> will be used when attaching the label movieclip. The last argument, <code>depth</code>, is also optional.
+
+<br><br>
+
+The "SCII Default Label" movieclip has the following properties:
+
+</p>
+
+
+<ul>
+<li><code>labelColor</code> - the color of the label (both the text and dot)</li>
+<li><code>text</code> -  the text to place next to the label</li>
+<li><code>textAngle</code> -  in degrees, clockwise from up, default is 0</li>
+<li><code>textRadius</code> -  approximate distance, in pixels, between the text and the dot, default is 7</li>
+<li><code>textSize</code> -  point size of text font, default is whatever the text size is in the embedded font field</li>
+<li><code>dotRadius</code> -  radius of dot, in pixels, default is 3</li>
+</ul>
+
+<p>
+
+These properties can be set by defining them on an <code>initObject</code> and passing it to <code>addLabel</code>. Afterwards, they can be set on directly on the the movieclip instance. Call <code>update</code> on the label movieclip after changing these properties.
+
+<br><br>
+
+<code>setLabelPosition(name, position)</code> - Sets the position (x-coordinate in pixels) of a label.
+
+<br><br>
+
+<code>removeLabel(name)</code> - Removes the label.
+
+<br><br>
+
+<code>showVerticalAxis,showHorizontalAxis</code> - Properties toggle visibility of the axes.
+
+<br><br>
+
+<code>setAxisStyle(thickness, color, alpha)</code> - Sets the linestyle of the axes. Use <code>null</code> to leave a parameter unchanged.
+
+<br><br>
+
+<code>setCurveStyle(thickness, color, alpha)</code> - Sets the linestyle of the sine curve. Use <code>null</code> to leave a parameter unchanged.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Maxwell-Boltzmann Distribution Plot Component</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">maxwellPlotComponent004</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('maxwellPlotComponent/maxwellPlotComponent004.html','maxwellPlotComponent004',900,400);" onMouseover="window.status='opens <maxwellPlotComponent/maxwellPlotComponent004.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="maxwellPlotComponent/maxwellPlotComponent004.swf">link</a> <span class="verFileSize">(33.9 KB, 900×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="maxwellPlotComponent/maxwellPlotComponent004.fla" class="verLink">source</a> <span class="verFileSize">(331 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Mon, 20 Nov 06, 10:22am CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">drawDashedLine Function</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">drawDashedLine001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:newWindow('drawDashedLine/drawDashedLine001.html','drawDashedLine001');" onMouseover="window.status='opens <drawDashedLine/drawDashedLine001.html> in new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="drawDashedLine/drawDashedLine001.swf">link</a> <span class="verFileSize">(498 B)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="drawDashedLine/drawDashedLine001.fla" class="verLink">source</a> <span class="verFileSize">(16.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 3 Nov 06, 3:43pm CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Here is all the code contained in the movie above:
+</p>
+
+<pre>
+
+MovieClip.prototype.drawDashedLine = function(startX, startY, endX, endY, dashLength, gapLength) {
+	// this function will draw a dashed line between the indicated endpoints; the given dash
+	// length and gap length will be approximated as closely as possible such that there is
+	// a complete dash touching both endpoints
+	var dx = endX-startX;
+	var dy = endY-startY;
+	var length = Math.sqrt(dx*dx+dy*dy);
+	var n = Math.round((length-dashLength)/(dashLength+gapLength));
+	var f = dashLength/(dashLength+gapLength);
+	var mx = dx/(n+f);
+	var my = dy/(n+f);
+	var lx = f*mx;
+	var ly = f*my;
+	for (var i=0; i<=n; i++) {
+		var x = startX + i*mx;
+		var y = startY + i*my;
+		this.moveTo(x, y);
+		this.lineTo(x+lx, y+ly);
+	}
+};
+
+var mc = this.createEmptyMovieClip("exampleMC", 1);
+
+mc.lineStyle(0, 0x000000);
+mc.drawDashedLine(70, 12, 169, 183, 4, 2);
+
+mc.lineStyle(0, 0xff0000);
+mc.drawDashedLine(169, 183, 392, 302, 3, 3);
+
+mc.lineStyle(0, 0x000000);
+mc.drawDashedLine(392, 302, 447, 110, 2, 6);
+
+mc.lineStyle(0, 0x0000ff);
+mc.drawDashedLine(447, 110, 70, 12, 12, 12);
+
+</pre>
+
+<p></p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">drawPhaseDisc Function</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">drawPhaseDisc001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('drawPhaseDisc/drawPhaseDisc001.html','drawPhaseDisc001',1050,600);" onMouseover="window.status='opens <drawPhaseDisc/drawPhaseDisc001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="drawPhaseDisc/drawPhaseDisc001.swf">link</a> <span class="verFileSize">(41.2 KB, 1050×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="drawPhaseDisc/drawPhaseDisc001.fla" class="verLink">source</a> <span class="verFileSize">(155.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 19 Jan 07, 4:53pm CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Just drag the "drawPhaseDisc Function" clip to the library to use the following function:</p>
+<pre>
+MovieClip.prototype.drawPhaseDisc = function(definition, optionsObj) {
+	// definition - the desired phase can be given in two ways:
+	//		- if 'definition' is a number it is assumed to be the phase angle in degrees;
+	//		the phase angle is the angle between the observer and illumination directions
+	//		as measured CCW from the the observer direction (e.g. an angle of 90° means
+	//		that the right half appears illuminated, ie. first quarter)
+	//		- if 'definition' is an object with x0, y0, x1, y1, x2, and y2 properties the function
+	//		will calculate the phase angle assuming that these are the screen coordinates for the
+	//		illuminator, observer, and observed body respectively; that is, the disc will be drawn
+	//		for an observer at body 1 looking at body 2, being illuminated by body 0
+	// possible properties for the optionsObj object (all optional):
+	//		radius - disc radius (default 70)
+	//		lightColor = the color for the illuminated part of the disc (default 0xe0e0e0)
+	//		darkColor = the color for the unilluminated part of the disc (default 0x404040)
+	//		x, y - the coordinates for the center of the disc (defaults are 0, 0)
+	//		lineThickness, lineColor, lineAlpha - the outline style (defaults are 1, 0x202020, and 0)
+	//		doClear - boolean specifies whether to clear the mc before drawing (default true)
+	// note: the function returns the phase angle in degrees in the range [0, 360) - this may be
+	// useful when giving object positions for the definition
+</pre>
+<p></p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

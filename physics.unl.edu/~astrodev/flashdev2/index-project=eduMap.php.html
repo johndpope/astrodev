@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>eduMap</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">EDU Flash Map</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">eduMap003</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('eduMap/eduMap003.html','eduMap003',350,180);" onMouseover="window.status='opens <eduMap/eduMap003.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="eduMap/eduMap003.swf">link</a> <span class="verFileSize">(34.1 KB, 350×180)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="eduMap/eduMap003.fla" class="verLink">source</a> <span class="verFileSize">(112 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 24 Jun 05, 3:47pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Added the ability to put lettered discs on the map. The locations of the these discs can be specified with the parameters aDiscLon, aDiscLat, bDiscLon, bDiscLat, cDiscLon, and cDiscLat. The size of the discs can be controlled with the optional parameter discScale, where discScale=1 is the default.</p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">eduMap002</span></td><td align="left" valign="middle" class="rowColor2"><a href="javascript:popup('eduMap/eduMap002.html','eduMap002',350,180);" onMouseover="window.status='opens <eduMap/eduMap002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="eduMap/eduMap002.swf">link</a> <span class="verFileSize">(33.1 KB, 350×180)</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><a href="eduMap/eduMap002.fla" class="verLink">source</a> <span class="verFileSize">(96 KB)</span></td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Fri, 24 Jun 05, 10:40am CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">Added two new flashvars parameters:</p>
+<ul>
+<li>showGrid - if showGrid=true then gridlines are added to the map (note that the 180&deg; gridline is replaced with the IDL)</li>
+<li>gridColor - optional parameter to control the color of the grid</li>
+</ul>
+<p></p></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">eduMap001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('eduMap/eduMap001.html','eduMap001',350,180);" onMouseover="window.status='opens <eduMap/eduMap001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="eduMap/eduMap001.swf">link</a> <span class="verFileSize">(32.7 KB, 350×180)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="eduMap/eduMap001.fla" class="verLink">source</a> <span class="verFileSize">(128 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 23 Jun 05, 4:08pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">This Flash movie can be used for both the named line and random coordinate questions. The accepted flashvars parameters are:</p>
+<ul>
+<li>crossLon, crossLat - if both are defined a cross is added at that coordinate</li>
+<li>lineLat - if defined a line is added at that latitude</li>
+<li>lineLon - if defined a line is added at that longitude (cf. showIDL below)</li>
+<li>showIDL - if showIDL=true and lineLon=180 then the IDL is drawn instead of the 180&deg; longitude line</li>
+<li>offset - optional, specifies the initial longitude at the left side of the map, the default is either 120&deg; west of the cross, or 120&deg; west of the longitude line, or 190&deg;</li>
+<li>crossColor - optional, specifies the color of the cross in hexadecimal (e.g. crossColor=ff0000 for red), default is black</li>
+<li>lineColor - optional, specifies the color of the lines</li>
+</ul>
+<p>The natural size of this movie is 350x180.</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

@@ -1,0 +1,285 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<title>variableStarLabs</title>
+
+<style type="text/css">
+
+html, body
+{
+	margin: 0em;
+	padding: 0em;
+	font-family: verdana, helvetica, sans-serif;
+	font-size: small;
+	background-color: #8195B4;
+}
+
+a:link
+{
+	color: #4040e0;
+}
+
+a:visited
+{
+	color: #9090c0;
+}
+
+p
+{
+	text-indent: 0em;
+}
+
+.noteFirstP
+{
+	margin-top: 0em;
+}
+
+.noteContainer
+{
+	border-style: dotted;
+	border-width: 1px;
+	padding: 0.6em;
+	margin: 1em;
+}
+
+.noteTag
+{
+	text-align: right;
+	font-size: smaller;
+	font-style: italic;
+}
+
+.pageContainer
+{
+	margin: 3em;
+	background-color: white;
+	border: 1px solid #354255;
+}
+
+.directoryContainer
+{	
+	width: 100%;
+}
+
+.directoryContents
+{	
+	padding-left: 1.5em;
+	border-left-style: solid;
+	border-left-color: #DEE3EB;
+	border-left-width: 3px;
+}
+
+.directoryTitle
+{
+	color: #54698B;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.fileTable
+{
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	color: #404F79;
+}
+	
+.emptyDirectoryMessage
+{
+	color: #A3B0C7;
+	font-style: italic;
+}
+
+.filenameColumn
+{
+	text-align: left;
+	font-family: "lucida console", monospace;
+}
+
+.filesizeColumn
+{
+	text-align: right;
+	font-family: "lucida console", monospace;
+}
+
+.filesizeUnitColumn
+{
+	text-align: left;
+	font-family: "lucida console", monospace;
+}
+
+.filedateColumn
+{
+	text-align: right;
+	font-family: "lucida console", monospace;
+}
+
+.dayOldGroup
+{
+	background-color: #fff0f0;
+	color: #000000;
+}
+
+.weekOldGroup
+{
+	background-color: #e8ffe8;
+	color: #000000;
+}
+
+.monthOldGroup
+{
+	background-color: #f0f0ff;
+	color: #000000;
+}
+
+.olderGroup
+{
+	background-color: #ffffff;
+	color: #909090;
+}
+
+.optionButton
+{
+	background-color: #F2F4F7;
+	text-align: center;
+	color: #597095;
+	font-weight: bold;
+	border: solid;
+	border-width: 2px;
+	padding: 0.15em 1em 0.15em;
+	cursor: pointer;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function toggleVisibility(id)
+{
+	var obj = window.document.getElementById(id);  
+	obj.style.display = (obj.style.display == "none") ? "block" : "none";
+}
+
+function showAll()
+{
+	for (var i = 0; i < 1; i++)
+	{
+		var obj = window.document.getElementById("dir"+i);
+		obj.style.display = "block";
+	}
+}
+
+function hideAll()
+{
+	for (var i = 1; i < 1; i++)
+	{
+		var obj = window.document.getElementById("dir"+i);
+		obj.style.display = "none";
+	}
+}
+
+function showAgeGroup(arg)
+{
+	var agesList = [{id: "dir0", num: 3}];
+	
+	
+	if (arg == "day") var ageGroupNumber = 0;
+	else if (arg == "week") var ageGroupNumber = 1;
+	else if (arg == "month") var ageGroupNumber = 2;
+	else var ageGroupNumber = 3;
+	
+	for (var i = 0; i < agesList.length; i++)
+	{
+		var obj = window.document.getElementById(agesList[i].id);
+		obj.style.display = (agesList[i].num <= ageGroupNumber) ? "block" : "none";
+	}
+}
+		
+</script>
+
+</head>
+<body>
+
+<div class="pageContainer">
+
+<div style="padding: 2em 3em 0em;">
+	
+	<div style="padding-bottom: 2em;">
+	<div onClick="showAll()" class="optionButton" style="width: 12em;">expand all</div>
+	<div onClick="hideAll()" class="optionButton" style="margin-top: 0.3em; width: 12em;">close all subfolders</div>
+	<div style="margin: 1.1em 0em 0.6em; font-style: italic; color: #41526D;">expand just those modified in the last</div>
+	<div onClick="showAgeGroup('day')" class="optionButton" style="width: 5.3em; float: left;">24 hours</div> 
+	<div onClick="showAgeGroup('week')" class="optionButton" style="margin-left: 0.3em; width: 5.3em; float: left;">7 days</div>
+	<div onClick="showAgeGroup('month')" class="optionButton" style="margin-left: 0.3em; width: 5.3em; float: left;">30 days</div>
+	<br style="clear: both;">
+	</div>				
+
+<div class="directoryContainer">
+ <span class="directoryTitle" onClick="toggleVisibility('dir0')">variableStarLabs</span>
+ <div class="directoryContents" id="dir0">
+  <table class="fileTable">
+  <tr class="olderGroup"><td class="filenameColumn"><a href="index.php.html">index.php</a></td><td class="filesizeColumn">3.4</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 18 Oct 10, 1:40pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="list.php.html">list.php</a></td><td class="filesizeColumn">9.4</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 18 Oct 10, 1:39pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="variableStarPhotometryAnalyzer.swf">variableStarPhotometryAnalyzer.swf</a></td><td class="filesizeColumn">93.7</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Wed, 2 Jan 08, 5:03pm CST</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="blinkComparatorSimulator.swf">blinkComparatorSimulator.swf</a></td><td class="filesizeColumn">75.7</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Thu, 20 Dec 07, 4:36pm CST</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="CCDMiniSim.swf">CCDMiniSim.swf</a></td><td class="filesizeColumn">54.8</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Wed, 19 Dec 07, 2:48pm CST</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="CCDMiniSim.html">CCDMiniSim.html</a></td><td class="filesizeColumn">2</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 19 Nov 07, 4:26pm CST</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="photometrySimulator.swf">photometrySimulator.swf</a></td><td class="filesizeColumn">43.9</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Wed, 31 Oct 07, 2:58pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="registrationSimulator.swf">registrationSimulator.swf</a></td><td class="filesizeColumn">38.4</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Wed, 31 Oct 07, 2:56pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="blinkComparatorSimulator.html">blinkComparatorSimulator.html</a></td><td class="filesizeColumn">2.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Wed, 31 Oct 07, 12:48pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="registrationSimulator.html">registrationSimulator.html</a></td><td class="filesizeColumn">2.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 29 Oct 07, 11:00am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="photometrySimulator.html">photometrySimulator.html</a></td><td class="filesizeColumn">2.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 26 Oct 07, 2:14pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="variableStarPhotometryAnalyzer.html">variableStarPhotometryAnalyzer.html</a></td><td class="filesizeColumn">2.2</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 26 Oct 07, 2:14pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive1.swf">interactive1.swf</a></td><td class="filesizeColumn">43.8</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 26 Oct 07, 10:42am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive1_test.swf">interactive1_test.swf</a></td><td class="filesizeColumn">43.5</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Wed, 24 Oct 07, 4:10pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive3.swf">interactive3.swf</a></td><td class="filesizeColumn">86.4</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Tue, 23 Oct 07, 3:47pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="settings071023.xml">settings071023.xml</a></td><td class="filesizeColumn">7.9</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Tue, 23 Oct 07, 3:33pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="settings.xml">settings.xml</a></td><td class="filesizeColumn">7.9</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Tue, 23 Oct 07, 3:32pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive3_old.swf">interactive3_old.swf</a></td><td class="filesizeColumn">86.2</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Tue, 23 Oct 07, 9:34am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive2.swf">interactive2.swf</a></td><td class="filesizeColumn">73.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 22 Oct 07, 2:51pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive1.html">interactive1.html</a></td><td class="filesizeColumn">2.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 22 Oct 07, 1:15pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="other.xml">other.xml</a></td><td class="filesizeColumn">7.7</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 22 Oct 07, 11:36am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="registrationExample.swf">registrationExample.swf</a></td><td class="filesizeColumn">37</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 19 Oct 07, 4:45pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="registrationExample.fla">registrationExample.fla</a></td><td class="filesizeColumn">642</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 19 Oct 07, 4:45pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="registrationExample.html">registrationExample.html</a></td><td class="filesizeColumn">2.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Thu, 18 Oct 07, 6:12pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive1b.swf">interactive1b.swf</a></td><td class="filesizeColumn">42.5</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Tue, 16 Oct 07, 11:42am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive1b.html">interactive1b.html</a></td><td class="filesizeColumn">2.3</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 15 Oct 07, 5:29pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="settingslownoise.xml">settingslownoise.xml</a></td><td class="filesizeColumn">7.9</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 15 Oct 07, 2:29pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive2.html">interactive2.html</a></td><td class="filesizeColumn">2.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 5 Oct 07, 4:20pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="interactive3.html">interactive3.html</a></td><td class="filesizeColumn">2.2</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 5 Oct 07, 3:57pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="settingsbackup.xml">settingsbackup.xml</a></td><td class="filesizeColumn">7.8</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 5 Oct 07, 2:42pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="AC_RunActiveContent.js">AC_RunActiveContent.js</a></td><td class="filesizeColumn">8.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Wed, 3 Oct 07, 10:15am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="test4.xml">test4.xml</a></td><td class="filesizeColumn">6.8</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 28 Sep 07, 10:14am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="test4backup.xml">test4backup.xml</a></td><td class="filesizeColumn">6.8</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Thu, 27 Sep 07, 4:44pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="test3.xml">test3.xml</a></td><td class="filesizeColumn">6</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Thu, 27 Sep 07, 11:02am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="StarFieldAndObservationsEditor.swf">StarFieldAndObservationsEditor.swf</a></td><td class="filesizeColumn">83.2</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Thu, 27 Sep 07, 10:40am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="test2.xml">test2.xml</a></td><td class="filesizeColumn">6.1</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Thu, 27 Sep 07, 9:26am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="v477cyg.xml">v477cyg.xml</a></td><td class="filesizeColumn">9.5</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Tue, 25 Sep 07, 2:45pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="test1.xml">test1.xml</a></td><td class="filesizeColumn">6</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Mon, 24 Sep 07, 11:15am CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="smiley.xml">smiley.xml</a></td><td class="filesizeColumn">3.7</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 7 Sep 07, 5:49pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="binSysLightcurve.swf">binSysLightcurve.swf</a></td><td class="filesizeColumn">31.7</td><td class="filesizeUnitColumn">kB</td><td class="filedateColumn">Fri, 7 Sep 07, 5:21pm CDT</td></tr>
+  <tr class="olderGroup"><td class="filenameColumn"><a href="saveSettings.php.html">saveSettings.php</a></td><td class="filesizeColumn">271</td><td class="filesizeUnitColumn">B</td><td class="filedateColumn">Fri, 7 Sep 07, 5:21pm CDT</td></tr>
+  </table>
+ </div>
+</div>
+
+</div>
+
+<pre style="text-align: right; color: #d8d8d8; padding-right: 1em;">
+7.242 ms
+</pre>
+
+</div>
+
+</body>
+</html>
+
+
+
+<!-- Localized -->

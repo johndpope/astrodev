@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>ellipseDemoWithSweeps</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Ellipse Demo with Sweeps</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">ellipseDemoWithSweeps002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('ellipseDemoWithSweeps/ellipseDemoWithSweeps002.html','ellipseDemoWithSweeps002',800,600);" onMouseover="window.status='opens <ellipseDemoWithSweeps/ellipseDemoWithSweeps002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="ellipseDemoWithSweeps/ellipseDemoWithSweeps002.swf">link</a> <span class="verFileSize">(70.2 KB, 800×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="ellipseDemoWithSweeps/ellipseDemoWithSweeps002.fla" class="verLink">source</a> <span class="verFileSize">(455.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Tue, 13 Jun 06, 10:40am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote"></p>
+<pre>
+
+example:
+
+ demoMC.addSweep("blueSweep", {centerAngle: 0, duration: 0.1}, {fillColor: 0x0000ff});
+
+ demoMC.addSweep("greenSweep");
+ demoMC.greenSweep.setStyle({fillColor: 0x00ff00, fillAlpha: 60, showOutline: true, outlineColor: 0x909090});
+ demoMC.greenSweep.setDefinition({startAngle: 90, duration: 0.25});
+
+properties:
+
+ eccentricity
+ semimajorAxis
+ showOrbit
+
+methods:
+
+ addSweep(name, defObj, styleObj)
+  - name should be a string, defObj and styleObj should
+    adhere to the rules below for sweeps
+ removeAllSweeps()
+ setOrbitStyle(styleObj)
+  - styleObj can have properties thickness, color, and alpha
+ setCenter(type)
+  - type should be "ellipse center" or "ellipse focus"
+
+sweep methods:
+
+ setDefinition(defObj)
+  - defObj should have a duration property (a number
+    between 0 and 1) and one of startAngle, centerAngle
+    or endAngle, which define the position of the sweep
+    in degrees
+ setStyle(styleObj)
+  - styleObj can have properties fillColor, fillAlpha, showOutline,
+    outlineThickness, outlineColor, and outlineAlpha
+ remove()
+
+</pre>
+<p>
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

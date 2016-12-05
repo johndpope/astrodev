@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>drawPhaseDisc</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">drawPhaseDisc Function</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">drawPhaseDisc001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('drawPhaseDisc/drawPhaseDisc001.html','drawPhaseDisc001',1050,600);" onMouseover="window.status='opens <drawPhaseDisc/drawPhaseDisc001.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="drawPhaseDisc/drawPhaseDisc001.swf">link</a> <span class="verFileSize">(41.2 KB, 1050×600)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="drawPhaseDisc/drawPhaseDisc001.fla" class="verLink">source</a> <span class="verFileSize">(155.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 19 Jan 07, 4:53pm CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Just drag the "drawPhaseDisc Function" clip to the library to use the following function:</p>
+<pre>
+MovieClip.prototype.drawPhaseDisc = function(definition, optionsObj) {
+	// definition - the desired phase can be given in two ways:
+	//		- if 'definition' is a number it is assumed to be the phase angle in degrees;
+	//		the phase angle is the angle between the observer and illumination directions
+	//		as measured CCW from the the observer direction (e.g. an angle of 90° means
+	//		that the right half appears illuminated, ie. first quarter)
+	//		- if 'definition' is an object with x0, y0, x1, y1, x2, and y2 properties the function
+	//		will calculate the phase angle assuming that these are the screen coordinates for the
+	//		illuminator, observer, and observed body respectively; that is, the disc will be drawn
+	//		for an observer at body 1 looking at body 2, being illuminated by body 0
+	// possible properties for the optionsObj object (all optional):
+	//		radius - disc radius (default 70)
+	//		lightColor = the color for the illuminated part of the disc (default 0xe0e0e0)
+	//		darkColor = the color for the unilluminated part of the disc (default 0x404040)
+	//		x, y - the coordinates for the center of the disc (defaults are 0, 0)
+	//		lineThickness, lineColor, lineAlpha - the outline style (defaults are 1, 0x202020, and 0)
+	//		doClear - boolean specifies whether to clear the mc before drawing (default true)
+	// note: the function returns the phase angle in degrees in the range [0, 360) - this may be
+	// useful when giving object positions for the definition
+</pre>
+<p></p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

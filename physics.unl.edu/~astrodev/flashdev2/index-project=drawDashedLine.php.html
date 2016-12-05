@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>drawDashedLine</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">drawDashedLine Function</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">drawDashedLine001</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:newWindow('drawDashedLine/drawDashedLine001.html','drawDashedLine001');" onMouseover="window.status='opens <drawDashedLine/drawDashedLine001.html> in new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="drawDashedLine/drawDashedLine001.swf">link</a> <span class="verFileSize">(498 B)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="drawDashedLine/drawDashedLine001.fla" class="verLink">source</a> <span class="verFileSize">(16.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 3 Nov 06, 3:43pm CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Here is all the code contained in the movie above:
+</p>
+
+<pre>
+
+MovieClip.prototype.drawDashedLine = function(startX, startY, endX, endY, dashLength, gapLength) {
+	// this function will draw a dashed line between the indicated endpoints; the given dash
+	// length and gap length will be approximated as closely as possible such that there is
+	// a complete dash touching both endpoints
+	var dx = endX-startX;
+	var dy = endY-startY;
+	var length = Math.sqrt(dx*dx+dy*dy);
+	var n = Math.round((length-dashLength)/(dashLength+gapLength));
+	var f = dashLength/(dashLength+gapLength);
+	var mx = dx/(n+f);
+	var my = dy/(n+f);
+	var lx = f*mx;
+	var ly = f*my;
+	for (var i=0; i<=n; i++) {
+		var x = startX + i*mx;
+		var y = startY + i*my;
+		this.moveTo(x, y);
+		this.lineTo(x+lx, y+ly);
+	}
+};
+
+var mc = this.createEmptyMovieClip("exampleMC", 1);
+
+mc.lineStyle(0, 0x000000);
+mc.drawDashedLine(70, 12, 169, 183, 4, 2);
+
+mc.lineStyle(0, 0xff0000);
+mc.drawDashedLine(169, 183, 392, 302, 3, 3);
+
+mc.lineStyle(0, 0x000000);
+mc.drawDashedLine(392, 302, 447, 110, 2, 6);
+
+mc.lineStyle(0, 0x0000ff);
+mc.drawDashedLine(447, 110, 70, 12, 12, 12);
+
+</pre>
+
+<p></p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

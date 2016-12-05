@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>logHistogram</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Logarithmic Histogram</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">logHistogram002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('logHistogram/logHistogram002.html','logHistogram002',620,400);" onMouseover="window.status='opens <logHistogram/logHistogram002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="logHistogram/logHistogram002.swf">link</a> <span class="verFileSize">(22.5 KB, 620×400)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="logHistogram/logHistogram002.fla" class="verLink">source</a> <span class="verFileSize">(64 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Wed, 17 Aug 05, 7:02pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">changes:</p>
+
+<ul>
+<li>fixed case bug</li>
+<li>added function <code>stepLabelsBy(n)</code>, so that labels are only shown every n<sup>th</sup> power of ten; in the example above n is 2</li>
+<li>added function <code>showMinorTicks(arg)</code>, where arg is a boolean indicating whether minor tickmarks are shown; in the example above this is set to false</li>
+<li>added an optional <code>width</code> parameter to the bar objects, so each bar's width can be specified individually (otherwise the default bar width is used); in the example above a narrow "empty" bar is used to physically separate the "16+" category from the rest</li>
+</ul>
+
+<p>This example also shows what can be done with a custom bar. Rolling over displays the value associated with that bar. Clicking the value lets you drag it around the screen.
+</p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

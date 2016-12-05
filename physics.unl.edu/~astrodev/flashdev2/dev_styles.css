@@ -1,0 +1,40 @@
+
+/*
+	In the standard scheme, there are 4 important colors in use.
+*/
+
+/* backround, light on dark text, and one of the alternating listing colors */
+body {background-color: #FFFFFF;}
+.title {color: #FFFFFF; font-weight: bolder; font-size: medium; font-family: verdana, arial, helvetica, sans-serif;}
+.content {background-color: #FFFFFF; padding: 15px;}
+.wrapper {margin-top: 40px; background-color: #FFFFFF;}
+.rowColor2 {background-color: #FFFFFF;}
+h3 {color: #FFFFFF; font-family: verdana, arial, helvetica, sans-serif;}
+
+/* dark background color (that light color text appears on */
+.titleBox {background-color: #555555; padding: 10px;}
+
+/* the slightly dark background color (that intermediate text appears on) */
+.rowColor1 {background-color: #F4F4F4;}
+
+/* the intermediate text color */
+a {color: #222222; font-family: verdana, arial, helvetica, sans-serif;}
+p {color:  #222222; text-indent: 0px; margin-left: 15px; margin-right: 15px; margin-bottom: 15px; font-family: verdana, arial, helvetica, sans-serif;}
+pre {color:  #222222; margin-left: 15px; margin-right: 15px; margin-bottom: 15px; }
+code {color:  #222222;}
+ul {color:  #222222; margin-left: 45px;  font-family: verdana, arial, helvetica, sans-serif;}
+ol {color:  #222222; margin-left: 45px;  font-family: verdana, arial, helvetica, sans-serif;}
+.verTitle {color: #222222; font-weight: bold; font-family: verdana, arial, helvetica, sans-serif;}
+a.verLink {color: #222222; font-family: verdana, arial, helvetica, sans-serif;}
+.verFileSize {color: #222222; font-size: smaller; font-family: verdana, arial, helvetica, sans-serif;}
+.verDate {color: #222222; font-weight: bold; font-family: verdana, arial, helvetica, sans-serif;}
+.verNote {color: #222222; text-indent: 30px; margin-left: 15px; margin-right: 15px; margin-bottom: 15px; font-family: verdana, arial, helvetica, sans-serif;}
+a.listingLink {color:  #222222; font-weight: bold; font-family: verdana, arial, helvetica, sans-serif;}
+.listingSummary {color: #222222; text-indent: 30px; margin-left: 15px; margin-right: 15px; margin-bottom: 15px; font-family: verdana, arial, helvetica, sans-serif;}
+.groupProject {font-size: smaller;}
+
+/* warning messages (rare, I haven't got one yet) */
+.warning {color:  #FF0000; text-indent: 20px; margin-left: 10px;  font-family: verdana, arial, helvetica, sans-serif;}
+
+/* presently undefined, but is still used in the document */
+.listingTable {}

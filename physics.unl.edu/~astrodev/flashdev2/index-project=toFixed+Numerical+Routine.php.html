@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>toFixed</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">toFixed Numerical Routine</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">toFixed002</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('toFixed/toFixed002.html','toFixed002',550,250);" onMouseover="window.status='opens <toFixed/toFixed002.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="toFixed/toFixed002.swf">link</a> <span class="verFileSize">(19.7 KB, 550×250)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="toFixed/toFixed002.fla" class="verLink">source</a> <span class="verFileSize">(14.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Fri, 7 May 04, 3:13pm CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">The function given here takes a number and returns it as a string with the specified number of digits. To use, copy the function <code>Number.prototype.toFixed()</code> and put it in the first frame of your movie, or inside any <code>#initclip/#endinitclip</code> pair. Then when you have a number <code>x</code> that you want in fixed format with <code>N</code> digits, use the following method:
+<br><br>
+<code>output = x.toFixed(N);</code>
+<br><br>
+Another example:
+<br><br>
+<code>
+var x = Math.sin(1);<br>
+trace(x); // traces 0.841470984807897<br>
+var str = x.toFixed(3);<br>
+trace(str); // traces 0.841
+</code>
+<br><br>
+The variable must be a number to access the function, so explicit conversion may be necessary:
+<br><br>
+<code>
+userString = "0.33443";<br>
+var x = Number(userString);<br>
+trace(x.toFixed(2)); // traces 0.33
+</code></p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

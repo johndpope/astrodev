@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>eduHRDiagram</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">EDU HR Diagram</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">eduHRDiagram006</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('eduHRDiagram/eduHRDiagram006.html','eduHRDiagram006',360,390);" onMouseover="window.status='opens <eduHRDiagram/eduHRDiagram006.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="eduHRDiagram/eduHRDiagram006.swf">link</a> <span class="verFileSize">(28.4 KB, 360×390)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="eduHRDiagram/eduHRDiagram006.fla" class="verLink">source</a> <span class="verFileSize">(138 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Wed, 16 Nov 05, 4:57pm CST</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Added the <code>showAsDisc</code> and <code>textColor</code> options for points &mdash; <a href="eduHRDiagram/eduHRDiagramNotes.txt">updated notes</a></p>
+
+<p>This flash file is designed to produce an HR diagram based on parameters sent by flashvars. For example, the following flashvars string produces the diagram above (where all the text is on one line):</p>
+
+<pre>main=1&hip=1&mass1=1&label1=sun&color1=666666&
+temp2=25000&lum2=150000&label2=A&color2=ee3333&textColor2=ffffff&showAsDisc2=1&
+temp3=4000&lum3=1000&label3=B&color3=00aa33&textColor3=ffffff&showAsDisc3=1&
+temp4=10000&lum4=0.1&label4=C&color4=3333bb&textColor4=ffffff&showAsDisc4=1&
+temp5=3300&lum5=0.01&label5=D&color5=ffbb50&textColor5=ffffff&showAsDisc5=1</pre>
+
+<p>Since flashvars parameters are defined on the root you can also acheive the same result using the following code on the first frame of the main timeline (where diagramMC is the instance name of the HR diagram component):<p>
+
+<pre>
+main = "1";
+hip = "1";
+
+mass1 = "1";
+label1 = "sun";
+color1 = "666666";
+
+temp2 = "25000";
+lum2 = "150000";
+label2 = "A";
+color2 = "ee3333";
+textColor2 = "ffffff";
+showAsDisc2 = "1";
+
+temp3 = "4000";
+lum3 = "1000";
+label3 = "B";
+color3 = "00aa33";
+textColor3 = "ffffff";
+showAsDisc3 = "1";
+
+temp4 = "10000";
+lum4 = "0.1";
+label4 = "C";
+color4 = "3333bb";
+textColor4 = "ffffff";
+showAsDisc4 = "1";
+
+temp5 = "3300";
+lum5 = "0.01";
+label5 = "D";
+color5 = "ffbb50";
+textColor5 = "ffffff";
+showAsDisc5 = "1";
+
+diagramMC.loadParameters();
+</pre>
+
+<p></p></td><td class="rowColor1">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->

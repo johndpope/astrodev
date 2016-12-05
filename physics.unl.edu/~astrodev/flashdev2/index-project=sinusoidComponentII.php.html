@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="dev_styles.css">
+<title>sinusoidComponentII</title>
+<script language="JavaScript" type="text/javascript">
+function popup(loc, nm, w, h) {
+	var params = 'width='+w+',height='+h+',toolbar=no,directories=no,menubar=no,resizable=no,dependent=no,status=no';
+	window.open(loc,nm,params);
+}
+function newWindow(loc, nm) {
+	window.open(loc,nm);
+}
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="30" align="center" width="850" class="wrapper">
+<tr><td class="titleBox" align="left" valign="middle"><span class="title">Sinusoid Component II</span></td></tr>
+<tr><td class="content"><table class="listingTable" border="0" cellspacing="0" cellpadding="5" width="770" align="center">
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><span class="verTitle">sinusoidComponentII004</span></td><td align="left" valign="middle" class="rowColor1"><a href="javascript:popup('sinusoidComponentII/sinusoidComponentII004.html','sinusoidComponentII004',400,200);" onMouseover="window.status='opens <sinusoidComponentII/sinusoidComponentII004.html> in resized new window'; return true" onMouseout="window.status=' '; return true"  class="verLink">view</a>, <a href="sinusoidComponentII/sinusoidComponentII004.swf">link</a> <span class="verFileSize">(11.5 KB, 400×200)</span></td><td align="left" valign="middle" class="rowColor1">&nbsp;</td><td align="left" valign="middle" class="rowColor1"><a href="sinusoidComponentII/sinusoidComponentII004.fla" class="verLink">source</a> <span class="verFileSize">(204.5 KB)</span></td><td align="right" valign="middle" class="rowColor1"><span class="verDate">Thu, 21 Sep 06, 9:39am CDT</span></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor1">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor1"><p class="verNote">Slight changes have been made to the component: a change in how the size is set when attaching using attachMovie and the inclusion of more embedded characters for the default label.</p>
+
+<p>Besides these changes to the component this demonstration swf has been changed so that the appearance of the example sinusoid can be set using flashvars. The width and height of the component will adjust to the size of the stage (ie. the swf size specified in the embedding html block).</p>
+
+<p>All of the following flashvars are optional:</p>
+
+<ul>
+<li><code>amplitude</code> - in pixels, default is 60</li>
+<li><code>wavelength</code> - in pixels, default is 80</li>
+<li><code>offset</code> - in pixels, default is 0</li>
+<li><code>showAxis</code> - can be 'T' or 'F' (or '1' or '0'), default is 'T'</li>
+<li><code>curveThickness</code> - default is 1</li>
+<li><code>curveColor</code> - in hex (without '#' or '0x' in front), default is '999999'</li>
+<li><code>curveAlpha</code> - default is 100</li>
+<li><code>axisThickness</code> - default is 1</li>
+<li><code>axisColor</code> - in hex, default is 'cccccc'</li>
+<li><code>axisAlpha</code> - default is 100</li>
+</ul>
+
+<p>Labels are added at positions <code>pos<b>Z</b></code> where <code><b>Z</b></code> denotes the label number, running consecutively from 1. The position should be given in pixels. Each label can be customized with the following optional flashvars:</p>
+
+<ul>
+<li><code>color<b>Z</b></code> - in hex, default is 'd00000'</li>
+<li><code>text<b>Z</b></code> - default is no text</li>
+<li><code>textAngle<b>Z</b></code> - in degrees clockwise from up, default is 0</li>
+<li><code>textRadius<b>Z</b></code> - in pixels, default is 7</li>
+<li><code>textSize<b>Z</b></code> - in points, default is 12</li>
+<li><code>dotRadius<b>Z</b></code> - in pixels, default is 3</li>
+</ul>
+
+<p></p></td><td class="rowColor1">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2"><span class="verTitle">sinusoidComponentII003</span></td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="left" valign="middle" class="rowColor2">&nbsp;</td><td align="right" valign="middle" class="rowColor2"><span class="verDate">Mon, 18 Sep 06, 3:38pm CDT</span></td><td class="rowColor2">&nbsp;</td></tr>
+<tr><td class="rowColor2">&nbsp;</td><td align="left" valign="middle" colspan="5" class="rowColor2"><p class="verNote">notes:
+
+<br><br>
+
+<code>amplitude, wavelength, offset</code> - These properties determine the shape of the curve. Values are in pixels.
+
+<br><br>
+
+<code>width, height</code> - These properties set the dimensions of the plot area.
+
+<br><br>
+
+<code>addLabel(linkageName, name, position, initObj, depth)</code> - This function adds a label (movieclip) to the curve. If the linkage name is <code>null</code> or <code>undefined</code> the "SCII Default Label" found in the resources folder is used. <code>name</code> should be a valid actionscript identifier since it will be used to provide a reference to the movieclip. The position is the x-coordinate of the label. The optional argument <code>initObj</code> will be used when attaching the label movieclip. The last argument, <code>depth</code>, is also optional.
+
+<br><br>
+
+The "SCII Default Label" movieclip has the following properties:
+
+</p>
+
+
+<ul>
+<li><code>labelColor</code> - the color of the label (both the text and dot)</li>
+<li><code>text</code> -  the text to place next to the label</li>
+<li><code>textAngle</code> -  in degrees, clockwise from up, default is 0</li>
+<li><code>textRadius</code> -  approximate distance, in pixels, between the text and the dot, default is 7</li>
+<li><code>textSize</code> -  point size of text font, default is whatever the text size is in the embedded font field</li>
+<li><code>dotRadius</code> -  radius of dot, in pixels, default is 3</li>
+</ul>
+
+<p>
+
+These properties can be set by defining them on an <code>initObject</code> and passing it to <code>addLabel</code>. Afterwards, they can be set on directly on the the movieclip instance. Call <code>update</code> on the label movieclip after changing these properties.
+
+<br><br>
+
+<code>setLabelPosition(name, position)</code> - Sets the position (x-coordinate in pixels) of a label.
+
+<br><br>
+
+<code>removeLabel(name)</code> - Removes the label.
+
+<br><br>
+
+<code>showVerticalAxis,showHorizontalAxis</code> - Properties toggle visibility of the axes.
+
+<br><br>
+
+<code>setAxisStyle(thickness, color, alpha)</code> - Sets the linestyle of the axes. Use <code>null</code> to leave a parameter unchanged.
+
+<br><br>
+
+<code>setCurveStyle(thickness, color, alpha)</code> - Sets the linestyle of the sine curve. Use <code>null</code> to leave a parameter unchanged.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p></td><td class="rowColor2">&nbsp;</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+<!-- Localized -->
